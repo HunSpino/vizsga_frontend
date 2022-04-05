@@ -43,7 +43,7 @@ export default {
     },
     methods: {
       async loadData () {
-      let Response = await fetch('localhost/phpmyadmin/vizsga')
+      let Response = await fetch('http://localhost/vizsga')
       let data = await Response.json()
       this.vizsgas = data
     }
