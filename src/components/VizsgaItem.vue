@@ -12,14 +12,7 @@
 <script>
 export default {
     name: 'VizsgaItem',
-    props: ["vizsga"],
-    methods: {
-        async loadData () {
-     let Response = await fetch('localhost/phpmyadmin/vizsga')
-     let data = await Response.json()
-     this.vizsgas = data
-    }
-    }
+    props: ["vizsga"] 
 }
 
 </script>

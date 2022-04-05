@@ -14,7 +14,10 @@
       </nav>
     </header>
     <main class="row">
-      <VizsgaItem :vizsga="vizsga"/>
+      <VizsgaItem 
+      v-for="vizsga in vizsgas" 
+      v-bind:key="vizsga.id"
+      :vizsga="vizsga"/>
     </main>
   </div>
 </template>
@@ -35,8 +38,18 @@ export default {
                 tipus: '',
                 kezdes: ''
             },
-          
+          vizsgas: []
         }
+    },
+    methods: {
+      async loadData () {
+      let Response = await fetch('localhost/phpmyadmin/vizsga')
+      let data = await Response.json()
+      this.vizsgas = data
+    }
+  },
+   mounted() {
+    this.loadData()
     }
 }
 </script>
