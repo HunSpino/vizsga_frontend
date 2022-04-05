@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <Header>
+    <header>
       <h1>Vizsga</h1>
       <nav>
         <ul class="nav">
@@ -12,22 +12,32 @@
           </li>
         </ul>
       </nav>
-    </Header>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <VizsgaItem />
+    </header>
+    <main class="row">
+      <VizsgaItem :vizsga="vizsga"/>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import VizsgaItem from './components/VizsgaItem.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     VizsgaItem
-  }
+  },
+  data(){
+        return{
+            vizsga:{
+                id: null,
+                targy: '',
+                tipus: '',
+                kezdes: ''
+            },
+          
+        }
+    }
 }
 </script>
 

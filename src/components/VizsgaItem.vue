@@ -1,17 +1,25 @@
 <template>
     <div class="card" >
-  <img src="" class="card-img-top" alt="...">
+  <img src="" class="card-img-top" alt="kep">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">{{ vizsga.targy }}</h5>
+    <p class="card-text">{{ vizsga.tipus }}</p>
+    <p class="card-text">{{ vizsga.kezdes }}</p>
   </div>
 </div>
 </template>
 
 <script>
 export default {
-    name: 'VizsgaItem'
+    name: 'VizsgaItem',
+    props: ["vizsga"],
+    methods: {
+        async loadData () {
+     let Response = await fetch('localhost/phpmyadmin/vizsga')
+     let data = await Response.json()
+     this.vizsgas = data
+    }
+    }
 }
 
 </script>
